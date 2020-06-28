@@ -11,9 +11,14 @@ router.get('/', (req, res) => {
   res.status(200).json({
     message: "this is the main route"
   });
-  res.end();
 });
-router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
+
+router.get('/another', (req, res) => {
+  res.status(200).json({
+    route: req.originalUrl
+  })
+});
+
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 app.use(bodyParser.json());
